@@ -1,3 +1,13 @@
+---
+name: fips-crypto-audit
+description: "Runs a FIPS 140-3 crypto compliance audit across Go repositories, classifying every crypto/ import by risk and generating per-component reports. Separates first-party code from vendored dependencies and flags non-cryptographic uses of crypto primitives that break under GODEBUG=fips140=only. Use when auditing Go services for FIPS compliance, assessing new repos before adding them to FIPS CI, re-running an audit after vendor bumps, or generating evidence for compliance documentation."
+metadata:
+  author: TGPSKI
+  version: "1.0"
+license: MIT
+compatibility: "Go 1.24+ (native FIPS 140-3 module), bash, standard POSIX tooling. Operates on Go source trees cloned into repos/; no network access required beyond the initial clone step."
+---
+
 # FIPS Crypto Audit
 
 Run a FIPS 140-3 crypto compliance audit against Go repositories, classify findings, and generate reports.

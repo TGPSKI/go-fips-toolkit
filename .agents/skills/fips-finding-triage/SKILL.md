@@ -1,3 +1,13 @@
+---
+name: fips-finding-triage
+description: "Classifies an individual FIPS crypto audit finding as real cryptography or a non-cryptographic use of a crypto primitive, using structured diagnostic reasoning. Follows the abductive triage methodology of resolving coordinate mismatches first, since most findings are non-crypto, then tracing data flow and protocol requirements only when a usage is genuinely ambiguous. Use when an audit surfaces a CRITICAL or WARNING finding that needs classification, when a vendored dependency's crypto usage may not ship in the binary, or when producing evidence for a compliance review."
+metadata:
+  author: TGPSKI
+  version: "1.0"
+license: MIT
+compatibility: "Go 1.24+ (native FIPS 140-3 module), bash. Operates on findings emitted by the fips-crypto-audit skill plus the Go source under review; no network access required."
+---
+
 # FIPS Finding Triage
 
 Structured diagnostic reasoning for classifying individual FIPS crypto audit findings. Determines whether a `crypto/` package usage is actual cryptography or non-cryptographic use of a crypto primitive.
