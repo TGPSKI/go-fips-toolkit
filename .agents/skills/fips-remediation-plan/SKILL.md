@@ -1,3 +1,13 @@
+---
+name: fips-remediation-plan
+description: "Generates component-specific FIPS remediation TODO lists from crypto audit results, with effort estimates and suggested PR sequencing. A directed workflow following the Inspect-Decide-Generate pattern, splitting findings into must-fix, primitive swaps, no-change-needed, and upstream dependencies. Use after a FIPS crypto audit when a component team asks what they need to fix, when planning sprint work for a FIPS migration, or when writing remediation PR descriptions."
+metadata:
+  author: TGPSKI
+  version: "1.0"
+license: MIT
+compatibility: "Go 1.24+ (native FIPS 140-3 module), bash. Consumes audit/results/summary-*.txt produced by the fips-crypto-audit skill; no network access required."
+---
+
 # FIPS Remediation Plan
 
 Generate component-specific remediation TODO lists from FIPS crypto audit results, with effort estimates and PR sequencing.
