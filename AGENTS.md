@@ -1,6 +1,6 @@
 # go-fips-toolkit
 
-FIPS 140-3 crypto compliance audit, remediation planning, and finding triage for Go projects migrating to Go's native FIPS provider (`GOFIPS140=latest`).
+FIPS 140-3 crypto compliance audit, remediation planning, and finding triage for Go projects migrating to Go's native FIPS provider (`GOFIPS140`).
 
 ## Repository structure
 
@@ -62,6 +62,6 @@ Go 1.24+ introduced a native FIPS 140-3 cryptographic module, replacing the CGO/
 - **`fips140=on`** (production) — approved algorithms use the FIPS-validated module; non-approved algorithms still work.
 - **`fips140=only`** (CI/testing) — same, plus blocks all non-approved algorithms. The Go team describes this as "a best effort mode meant for testing, assessment, and debugging" — not intended for production, not required by the Security Policy.
 
-Build with `GOFIPS140=latest` to enable FIPS mode. Set `GODEBUG=fips140=only` in CI to catch non-approved algorithm usage before it ships.
+Build with `GOFIPS140=v1.0.0` (the module snapshot covered by CMVP Certificate #5247; `GOFIPS140=certified` becomes an alias in Go 1.27 / 1.26.3 / 1.25.10). Set `GODEBUG=fips140=only` in CI to catch non-approved algorithm usage before it ships.
 
 This toolkit automates the audit, classification, and remediation planning for that migration. It is most useful when preparing for `fips140=only` in CI.
