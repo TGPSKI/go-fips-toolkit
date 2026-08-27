@@ -35,7 +35,7 @@ make clone
 make audit
 ```
 
-Results land in `audit/results/`:
+Results land in `results/`:
 - `summary-<timestamp>.txt` — findings by component
 - `<component>-<timestamp>.txt` — per-file detail with code context
 - `audit-<timestamp>.json` — machine-readable output (with `make audit-json`)

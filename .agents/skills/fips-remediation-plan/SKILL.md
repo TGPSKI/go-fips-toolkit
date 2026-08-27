@@ -5,7 +5,7 @@ metadata:
   author: TGPSKI
   version: "1.0"
 license: MIT
-compatibility: "Go 1.24+ (native FIPS 140-3 module), bash. Consumes audit/results/summary-*.txt produced by the fips-crypto-audit skill; no network access required."
+compatibility: "Go 1.24+ (native FIPS 140-3 module), bash. Consumes results/summary-*.txt produced by the fips-crypto-audit skill; no network access required."
 ---
 
 # FIPS Remediation Plan
@@ -26,7 +26,7 @@ This is a **directed workflow** following the Inspect-Decide-Generate pattern.
 ### 1. Find audit results
 
 ```bash
-ls -lt audit/results/summary-*.txt | head -3
+ls -lt results/summary-*.txt | head -3
 ```
 
 If no results exist, tell the user to run `@fips-crypto-audit/SKILL.md` first.

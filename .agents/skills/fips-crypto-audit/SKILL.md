@@ -30,7 +30,7 @@ ls repos/ 2>/dev/null | wc -l
 2. Check for existing audit results:
 
 ```bash
-ls audit/results/summary-*.txt 2>/dev/null | tail -5
+ls results/summary-*.txt 2>/dev/null | tail -5
 ```
 
 3. Determine the audit scope. Ask the user:
@@ -48,34 +48,36 @@ Based on the scope, determine which scripts to run:
 
 | Status | Action |
 |--------|--------|
-| Repos not cloned | Run `./audit/clone.sh` first |
+| Repos not cloned | Run `scripts/clone.sh` first |
 | Repos cloned, no recent audit | Run full audit |
 | Repos cloned, recent audit exists | Ask user: re-run or analyze existing? |
-| Single component requested | Run `./audit/audit-crypto.sh --component <name>` |
+| Single component requested | Run `scripts/audit-crypto.sh --component <name>` |
 
 ## Generate
+
+Run from the directory where `repos/` should live. Audit results go to `./results/`.
 
 ### Phase 1: Clone repos (if needed)
 
 ```bash
 # From a repos.txt file
-./audit/clone.sh repos.txt
+scripts/clone.sh repos.txt
 
 # Specific repos
-./audit/clone.sh -r myorg/my-service myorg/my-library
+scripts/clone.sh -r myorg/my-service myorg/my-library
 ```
 
 ### Phase 2: Run the audit
 
 ```bash
 # Full audit with vendor summary and JSON
-./audit/audit-crypto.sh --vendor-summary --json
+scripts/audit-crypto.sh --vendor-summary --json
 
 # First-party only (skip vendor noise)
-./audit/audit-crypto.sh --first-party-only --json
+scripts/audit-crypto.sh --first-party-only --json
 
 # Single component deep dive
-./audit/audit-crypto.sh --component my-service --json
+scripts/audit-crypto.sh --component my-service --json
 ```
 
 ### Phase 3: Analyze results
@@ -106,9 +108,9 @@ Classify each finding as:
 ## Output
 
 The audit produces:
-- `audit/results/summary-<timestamp>.txt` — human-readable summary
-- `audit/results/<component>-<timestamp>.txt` — per-component detail files
-- `audit/results/audit-<timestamp>.json` — machine-readable JSON (with `--json`)
+- `results/summary-<timestamp>.txt` — human-readable summary
+- `results/<component>-<timestamp>.txt` — per-component detail files
+- `results/audit-<timestamp>.json` — machine-readable JSON (with `--json`)
 
 ## Follow-up Skills
 
