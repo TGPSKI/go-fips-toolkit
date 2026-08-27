@@ -8,15 +8,14 @@ FIPS 140-3 crypto compliance audit, remediation planning, and finding triage for
 go-fips-toolkit/
 ├── AGENTS.md                           # You are here
 ├── Makefile                            # make clone, make audit, make help
-├── audit/
-│   ├── clone.sh                        # Clone Go repos for audit
-│   ├── audit-crypto.sh                 # FIPS crypto compliance scanner
-│   └── results/                        # Audit output (timestamped, gitignored)
+├── audit -> .agents/skills/fips-crypto-audit/scripts/
+│                                       # Symlink; skill scripts are canonical
+├── results/                            # Audit output (timestamped, gitignored)
 ├── repos/                              # Cloned repositories (gitignored)
 └── .agents/skills/
     ├── fips-crypto-audit/              # Run audits, classify findings
     │   ├── SKILL.md
-    │   ├── scripts/ -> audit/          # Symlinked scripts
+    │   ├── scripts/                    # Canonical audit and clone scripts
     │   └── references/
     │       └── classification-table.md
     ├── fips-remediation-plan/          # Generate component TODO lists

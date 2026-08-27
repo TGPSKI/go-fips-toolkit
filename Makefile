@@ -20,7 +20,7 @@ audit-component: ## Audit a single component (COMPONENT=name)
 	./audit/audit-crypto.sh --component $(COMPONENT) --json
 
 clean: ## Remove audit results
-	rm -f audit/results/*.txt audit/results/*.json
+	rm -f results/*.txt results/*.json
 
 clean-repos: ## Remove cloned repos
 	rm -rf repos/
